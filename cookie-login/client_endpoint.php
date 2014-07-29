@@ -17,8 +17,8 @@ $definedCookie = [
 ];
 
 // This is obviously fake, your system would generate and distribute a session id to users
-$sessionid = "BAD00BEEF00BABE00CAFE";
-$cookieName = "viafourous.sid";
+$sessionid = "someKindaSessionID4567";
+$cookieName = "loggedinCookie_sid";
 
 // Are we going to process the session and return data? or just show some info?
 if ($_REQUEST['sessionVerify']){
@@ -45,19 +45,19 @@ if ($_REQUEST['sessionVerify']){
     <meta charset="UTF-8">
     <title>VF Defined Cookie Login</title>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <script>
-      (function (v, s) {
-        v.type = 'text/javascript';
-        v.async = !0;
-        v.src = location.protocol !== 'https:' ? '//cdn.viafoura.net/vf.js' : '//api.viafoura.com/app/js/vf.js';
-        s.parentNode.insertBefore(v, s);
-      }(document.createElement('script'), document.getElementsByTagName('script')[0]));
-    </script>
+   <script>
+  (function (v, s) {
+    v.type = 'text/javascript';
+    v.async = !0;
+    v.src = '//cdn.viafoura.net/vf.js';
+    s.parentNode.insertBefore(v, s);
+  }(document.createElement('script'), document.getElementsByTagName('script')[0]));
+</script>
 </head>
 <body>
     <div id="Holder" style="margin: 20px;">
         <h1>Viafoura Defined Cookie Login</h1>
-        The cookie with our fake sid is called "viafourous.sid", it contains: "<?=$sessionid; ?>" <br />
+        The cookie with our fake sid is called "loggedinCookie_sid", it contains: "<?=$sessionid; ?>" <br />
         Set "Viafoura Defined Custom Cookie Endpoint" to:
         <pre>http://<?=$_SERVER['HTTP_HOST'];?>/?sessionVerify=</pre>
         <br />
