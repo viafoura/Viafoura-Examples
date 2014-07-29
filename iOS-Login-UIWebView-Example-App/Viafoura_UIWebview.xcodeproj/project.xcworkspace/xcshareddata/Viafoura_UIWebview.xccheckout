@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E16A0226-1947-419C-86B0-844C1B967B74</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Viafoura_UIWebview</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>89C6AF75-3BB5-493E-B546-AE0E061E297D</key>
+		<string>https://MacMini.local/git/Viafoura_UIWebview.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Viafoura_UIWebview.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>89C6AF75-3BB5-493E-B546-AE0E061E297D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://MacMini.local/git/Viafoura_UIWebview.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>89C6AF75-3BB5-493E-B546-AE0E061E297D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>89C6AF75-3BB5-493E-B546-AE0E061E297D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Viafoura_UIWebview</string>
+		</dict>
+	</array>
+</dict>
+</plist>
