@@ -1,10 +1,9 @@
-Here you will find a collection of various samples showing integration with the Viafoura platform.
-
-# iOS and Android Full Mobile SDK
-Some clients have a "Mobile-First" Approach to their strategies and as such prefer to have viafoura as a native application (as opposed to the webview rendered version). Understanding this need, we have a full SDK for both iOS and Android available for our clients. Please contact us, and we will provide you with our AMAZING SDK.
+# iOS and Android Mobile SDKs
+Viafoura’s iOS and Android SDKs empower you to deliver the best engagement experience to your audience no matter what device they’re on. Don't waste time sorting out JSON responses and error handling, we've taken care of that for you. We also expose data models that make it easy to retrieve, capture, and present data.
+* iOS Getting Started Guide and Reference Documentation.
+* Android Getting Started Guide and Reference Documentation.
 
 # Mobile Webview Integration 
-Viafoura social plugins work out of the box in any mobile environment as it is responsive by default. Some clients prefer to load the viafoura social plugins in a webview inside an app. To do this, some considerations need to be made for the login flow, and we have provided example apps that show a working example of this for both iOS (https://github.com/viafoura/Viafoura-Examples/tree/master/iOS-Login-UIWebView-Example-App) and Android (https://github.com/viafoura/Viafoura-Examples/tree/master/Android-Login-WebView-Example-App). 
-
-# Cookie Login Integration
-Some clients have their own login (i.e. Authentication) systems and would like to integrate that with viafoura. This example code (https://github.com/viafoura/Viafoura-Examples/tree/master/cookie-login) provides a working example of a how an endpoint to verify a cookie (for the purpose of Authentication) can look like. 
+Viafoura social plugins are built to work out-of-the-box on phones and tablet devices through responsive user interface design. When loading our plugins in a webview inside a mobile app, some considerations may need to be made for the login workflow.
+* iOS example login workflow [app](https://github.com/viafoura/Viafoura-Examples/tree/master/iOS-Login-UIWebView-Example-App) and [documentation](https://github.com/viafoura/Viafoura-Examples/raw/master/iOS-Login-UIWebView-Example-App/Viafoura%20UIWebView%20Integration.pdf).
+* Android example login workflow [app](https://github.com/viafoura/Viafoura-Examples/tree/master/Android-Login-WebView-Example-App) and [documentation](https://github.com/viafoura/Viafoura-Examples/raw/master/Android-Login-WebView-Example-App/Viafoura%20Android%20WebView%20Integration.pdf). 
