@@ -11,7 +11,6 @@ $definedCookie = [
     "displayName" => "Ironman", // Name you want displayed beside users comments (users can change this)
     "email" => "tony@starkenterprises.com", // We use emails to notify users of replies and followers if they request it
     "error" => "", // Empty on no error, populated with a string describing the error if there is one.
-    // Optional data
     "photoURL" => "http://i.imgur.com/mdipQYd.jpg", // Publicly accessible user avatar, will be resized and displayed beside comments, square images work best
     "socialData" => array("data" => "passed", "in" => "from", "any" => "social", "login" => "provider") // pass along any social media data the user has provided your login system.
 ];
