@@ -6,7 +6,7 @@
 
 // This is what the data you return to Viafoura will look like:
 $definedCookie = [
-    // Required data
+    
     "uid" => "75453", // Users unique ID in your system
     "displayName" => "Ironman", // Name you want displayed beside users comments (users can change this)
     "email" => "tony@starkenterprises.com", // We use emails to notify users of replies and followers if they request it
