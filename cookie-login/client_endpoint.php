@@ -13,7 +13,7 @@ $definedCookie = [
     "error" => "", // Empty on no error, populated with a string describing the error if there is one.
     // Optional data
     "photoURL" => "http://i.imgur.com/mdipQYd.jpg", // Publicly accessible user avatar, will be resized and displayed beside comments, square images work best
-    "socialData" => array("data" => "passed", "in" => "from", "any" => "social", "login" => "provider") // Optional where you may pass along any social media data the user has provided your login system.
+    "socialData" => array("data" => "passed", "in" => "from", "any" => "social", "login" => "provider") // pass along any social media data the user has provided your login system.
 ];
 
 // This is obviously fake, your system would generate and distribute a session id to users
