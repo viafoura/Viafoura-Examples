@@ -1,0 +1,17 @@
+node_modules/
+lib-cov
+*.seed
+*.log
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+build
+.DS_Store
+
+.env
+.env.test
