@@ -14,6 +14,10 @@ app.post('/vfWebhook', async (req, res) => {
     return res.send('Processed');
 });
 
+app.post('/health-check', async (req, res) => {
+    return res.send('Still alive');
+});
+
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)
 })
