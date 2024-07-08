@@ -6,7 +6,7 @@ export interface IRequest {
 }
 
 export interface INotification {
-    notification_type: string;
+    notification_type: INotificationType;
     notification_uuid: number;
     time: number;
     section_uuid: number;
@@ -35,11 +35,25 @@ export interface IUserExternalId {
 export interface IPayload {
     url: string;
     image_url: string;
+    topic_id?: string;
+    description?: string;
+    title?: string;
     content: IPayloadContent;
     target_content_uuid: string;
 }
 
 export interface IPayloadContent {
     uuid: string;
-    body: string;
+    body?: string;
+}
+
+export enum INotificationType {
+    broadcast_topic = 'broadcast_topic',
+    broadcast_site = 'broadcast_site',
+    like = 'like',
+    reply = 'reply',
+    subscribed_page_content = 'subscribed_page_content',
+    subscribed_user_content = 'subscribed_user_content',
+    follow = 'follow',
+    reply_removed = 'reply_removed',
 }
