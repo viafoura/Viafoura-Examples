@@ -17,6 +17,7 @@ export const createOneSignalNotification = (async (message: string, vfUserId ? :
         notificationObject.include_aliases = {
             "external_id": [vfUserId]
         };
+        notificationObject.target_channel = 'push';
     } else {
         notificationObject.included_segments = ["All"];
     }
@@ -26,6 +27,6 @@ export const createOneSignalNotification = (async (message: string, vfUserId ? :
                 'Authorization': 'Basic ' + process.env.ONE_SIGNAL_API_KEY
             }
         });
-        
+
     console.log(response);
 });
