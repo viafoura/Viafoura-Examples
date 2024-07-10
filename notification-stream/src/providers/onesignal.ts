@@ -2,10 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
     baseURL: 'https://api.onesignal.com/',
-    timeout: 30000,
-    headers: {
-        'Authorization': 'Basic ' + process.env.ONE_SIGNAL_API_KEY
-    }
+    timeout: 30000
 });
 
 export const createOneSignalNotification = ((message: string, vfUserId ? : string) => {
