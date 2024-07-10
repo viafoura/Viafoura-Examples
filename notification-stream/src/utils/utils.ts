@@ -8,16 +8,16 @@ export const notificationToFormattedString = ((notification: INotification) => {
 
     switch (notification.notification_type) {
         case INotificationType.like:
-            description = "Someone liked your comment";
+            description = `${notification.user.name} liked your comment`;
             break;
         case INotificationType.follow:
-            description = "Someone started following you";
+            description = `${notification.user.name} started following you`;
             break;
         case INotificationType.reply:
-            description = "Someone replied to your comment";
+            description = `${notification.user.name} replied to your comment`;
             break;
         case INotificationType.subscribed_user_content:
-            description = "Someone you follow posted a new comment";
+            description = `${notification.user.name} you follow posted a new comment`;
             break;
         case INotificationType.subscribed_page_content:
             description = "There is new comments in a page you follow";
