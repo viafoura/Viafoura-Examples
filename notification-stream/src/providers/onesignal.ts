@@ -28,5 +28,6 @@ export const createOneSignalNotification = (async (message: string, vfUserId ? :
             }
         });
 
-    console.log(response);
+    console.log(response.data);
+    console.log(response.status);
 });
