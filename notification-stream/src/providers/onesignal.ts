@@ -5,7 +5,7 @@ const instance = axios.create({
     timeout: 30000
 });
 
-export const createOneSignalNotification = ((message: string, vfUserId ? : string) => {
+export const createOneSignalNotification = (async (message: string, vfUserId ? : string) => {
     const notificationObject: any = {
         app_id: process.env.ONE_SIGNAL_APP_ID,
         contents: {
@@ -13,7 +13,7 @@ export const createOneSignalNotification = ((message: string, vfUserId ? : strin
         },
     };
 
-    if (false) {
+    if (vfUserId) {
         notificationObject.include_aliases = {
             "external_id": [vfUserId]
         };
@@ -21,15 +21,11 @@ export const createOneSignalNotification = ((message: string, vfUserId ? : strin
         notificationObject.included_segments = ["All"];
     }
 
-    instance.post('/notifications', notificationObject, {
+    const response = await instance.post('/notifications', notificationObject, {
             headers: {
                 'Authorization': 'Basic ' + process.env.ONE_SIGNAL_API_KEY
             }
-        })
-        .then(function(response) {
-            console.log(response);
-        })
-        .catch(function(error) {
-            console.log(error);
         });
+        
+    console.log(response);
 });
