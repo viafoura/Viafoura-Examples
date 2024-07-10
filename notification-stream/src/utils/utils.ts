@@ -8,7 +8,6 @@ export const notificationToFormattedString = ((notification: INotification) => {
 
     switch (notification.notification_type) {
         case INotificationType.like:
-            console.log("SETTING HERE");
             description = "Someone liked your comment";
             break;
         case INotificationType.follow:
