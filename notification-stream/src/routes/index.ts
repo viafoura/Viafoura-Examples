@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router();
 
+import { version } from '../../package.json';
 import { Request, Response } from 'express'
 import { IRequest } from '../types';
 import { createNotification } from '../providers';
@@ -16,7 +17,7 @@ router.post('/vf-webhook', (req: Request, res: Response) => {
 });
 
 router.get('/health-check', (req: Request, res: Response) => {
-    return res.send("still alive");
+    return res.send("still alive on " + version);
 });
 
 export default router;
