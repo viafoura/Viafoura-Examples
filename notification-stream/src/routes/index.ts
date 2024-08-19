@@ -6,12 +6,11 @@ import { version } from '../../package.json';
 import { Request, Response } from 'express'
 import { IRequest } from '../types';
 import { createNotification } from '../providers';
-import { isIterable } from '../utils/utils';
 
 router.post('/vf-webhook', (req: Request, res: Response) => {
     const request = req.body as IRequest;
-    
-    if(isIterable(request.notifications)){
+
+    if(Array.isArray(request.notifications)){
         for (var notification of request.notifications) {
             createNotification(notification);
         }
