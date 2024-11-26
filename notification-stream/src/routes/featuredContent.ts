@@ -8,6 +8,7 @@ import { Request, Response } from 'express'
 const SITE_DOMAIN = "demo.viafoura.com";
 const SITE_UUID = "00000000-0000-4000-8000-d47205fca416";
 
+// Do not do this, this should be stored in a DB or some sort of cache (eg: redis)
 var comments = [];
 
 router.post('/vf-content-webhook', async (req: Request, res: Response) => {
