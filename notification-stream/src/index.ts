@@ -1,5 +1,4 @@
 import router from "./routes";
-import featuredContentRouter from "./routes/featuredContent";
 import path from 'path';
 
 import { Request, Response, NextFunction } from 'express'
@@ -12,7 +11,6 @@ const port = process.env.PORT || 3000
 
 app.use(express.json());
 app.use("/", router);
-app.use("/", featuredContentRouter);
 
 app.use(function(err: Error, req: Request, res: Response, next: NextFunction) {
   return res.status(500).send('Something broke!');
