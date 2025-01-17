@@ -13,9 +13,14 @@ const instance = axios.create({
 export const createSubTextNotification = (async (message: string, vfUserId ? : string) => {
     const data = new URLSearchParams();
     data.append('body', message);
-    data.append('recipient_uuid', '8e6f20a8-c6b7-418c-b59e-ee83ebd1a096');
+    data.append('recipient_uuid', getRecipientIdFromViafouraId(vfUserId));
     
     instance.post('/v3/messages', data)
         .then(response => console.log(response.data))
         .catch(error => console.error(error));
 });
+
+const getRecipientIdFromViafouraId = (vfUserId?: string) => {
+    ///TODO: Lookup in a DB
+    return '8e6f20a8-c6b7-418c-b59e-ee83ebd1a096';
+};
