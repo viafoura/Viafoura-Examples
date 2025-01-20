@@ -1,0 +1,40 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: notification-stream
+build:
+  artifacts:
+    - image: notificationstream
+      context: .
+      docker:
+        dockerfile: Dockerfile
+        buildArgs: {}
+manifests:
+  helm:
+    releases: &releases
+      - name: notification-stream
+        chartPath: helm-charts/notification-stream
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_notificationstream}}"
+          image.tag: "{{.IMAGE_TAG_notificationstream}}@{{.IMAGE_DIGEST_notificationstream}}"
+        valuesFiles:
+          - helm-charts/notification-stream/values.yaml
+        setValues:
+          envVarsConfigMaps:
+            NS_LOG_LEVEL: silly
+        wait: true
+        createNamespace: true
+        useHelmSecrets: false
+    flags:
+      upgrade:
+        - --install
+        - --wait
+deploy:
+  helm:
+    releases: *releases
+portForward:
+  - resourceType: service
+    resourceName: notification-stream
+    port: 3000
+    localPort: 3000
+profiles: []

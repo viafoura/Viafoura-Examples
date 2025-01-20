@@ -9,13 +9,16 @@
     "scripts": {
         "start": "npx tsx src/index.ts",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build-local": "tsc --build --clean && ncc build --out dist-local src/index.ts",
-        "build-local-and-watch": "tsc --build --clean && ncc build --watch --out dist-local src/index.ts",
-        "build": "tsc --build --clean && ncc build src/index.ts",
+        "build-local": "tsc --build --clean && ncc build --source-map --license LICENSE --out dist-local src/index.ts",
+        "build-local-and-watch": "tsc --build --clean && ncc build ---source-map --watch --license LICENSE --out dist-local src/index.ts",
+        "build": "tsc --build --clean && ncc build --source-map --license LICENSE src/index.ts",
         "format": "prettier --write **/*.ts",
         "format-check": "prettier --check **/*.ts",
         "lint": "eslint **/*.ts",
-        "package": "ncc build --source-map --license LICENSE"
+        "package": "ncc build --source-map --license LICENSE",
+        "dkr-build-local": "docker buildx build --progress plain --pull --rm -f \"Dockerfile.local\" -t notification-stream:latest \".\"",
+        "dkr-compose-local-up": "docker compose --env-file .env -f docker-compose.yaml -f docker-compose.local.yaml up --build",
+        "dkr-compose-local-down": "docker compose --env-file .env -f docker-compose.yaml -f docker-compose.local.yaml down"
     },
     "author": "Viafoura",
     "license": "ISC",

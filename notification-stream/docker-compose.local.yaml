@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    image: notification-stream
+    container_name: notification-stream
+    healthcheck:
+      test: curl --fail http://localhost:3000/liveness || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+    ports:
+      - "3000:3000"

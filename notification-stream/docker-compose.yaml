@@ -1,0 +1,5 @@
+services:
+  app:
+    image: "218894879100.dkr.ecr.us-east-1.amazonaws.com/viafoura-examples/notification-stream-bff:latest"
+    ports:
+      - "3000:3000"

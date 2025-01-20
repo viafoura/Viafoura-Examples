@@ -1,0 +1,13 @@
+{{- if .Values.envVarsConfigMaps }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "notification-stream.fullname" . }}-configmap
+  labels:
+    {{- include "notification-stream.labels" . | nindent 4 }}
+data:
+{{- with .Values.envVarsConfigMaps }}
+  {{- toYaml . | nindent 2 }}
+{{- end }}
+{{- end }}
