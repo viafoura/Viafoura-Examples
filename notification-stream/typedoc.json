@@ -1,0 +1,8 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "docs",
+  "exclude": ["**/__tests__/**/*", "**/*.spec.ts"],
+  "includeVersion": true,
+  "hideGenerator": true,
+  "tsconfig": "tsconfig.json"
+}
