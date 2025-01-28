@@ -1,21 +1,19 @@
-import router from "./routes";
-import path from 'path';
+import express, { NextFunction, Request, Response } from 'express'
+import { logger } from './utils/logging'
+import { envs, maskedEnvs } from './utils/parser'
+import router from './routes'
 
-import { Request, Response, NextFunction } from 'express'
-
-require('dotenv').config({path: path.join(__dirname, '..', '.env')})
-
-const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
 
-app.use(express.json());
-app.use("/", router);
+app.use(express.json())
+app.use('/', router)
 
-app.use(function(err: Error, req: Request, res: Response, next: NextFunction) {
-  return res.status(500).send('Something broke!');
-});
+app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {
+  logger.info(`Incoming request: ${req.method} ${req.url}`)
+  return res.status(500).send('Something broke!')
+})
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`)
+app.listen(envs.HTTP_PORT, () => {
+  logger.debug(JSON.stringify(maskedEnvs))
+  logger.info(`App listening on port ${envs.HTTP_PORT}`)
 })
