@@ -1,12 +1,16 @@
-name: Trigger workflow Internal Workflow
+name: CI
 on:
   push:
     branches:
     - main
+    - master
+    paths:
+      - .github/workflows/trigger-notification-stream-build.yaml
+      - notification-stream/**/*
 
 jobs:
   trigger_workflow:
-    name: Trigger Workflow
+    name: Trigger Notification Stream Build
     runs-on: ${{ vars.RUNS_ON }}
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, '[skip ci]') }}
     steps:
@@ -31,6 +35,7 @@ jobs:
             "event_type": "CICD",
             "client_payload": {
               "repository": "${{ github.event.repository.name }}",
+              "path": "notification-stream",
               "sha": "${{ github.sha }}"
             }
           }' | jq -Sr '.' > ${PAYLOAD}
@@ -43,7 +48,7 @@ jobs:
            -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}"\
            -H "X-GitHub-Api-Version: 2022-11-28"\
            -d @"${PAYLOAD}"\
-           "https://api.github.com/repos/${{ github.repository_owner }}/${{ github.event.repository.name }}-private/dispatches")
+           "https://api.github.com/repos/${{ github.repository_owner }}/notification-stream/dispatches")
 
           if [[ -n "${result}" ]];
           then
