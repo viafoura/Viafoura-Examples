@@ -1,0 +1,51 @@
+name: Trigger workflow Internal Workflow
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  trigger_workflow:
+    name: Trigger Workflow
+    runs-on: ${{ vars.RUNS_ON }}
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, '[skip ci]') }}
+    steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }},${{ github.event.repository.name }}-private
+
+      - name: Triggering Build
+        shell: bash -l {0}
+        run: |
+          #!/usr/bin/env bash
+
+          set -euo pipefail
+
+          PAYLOAD=payload.json
+
+          echo '{
+            "event_type": "CICD",
+            "client_payload": {
+              "repository": "${{ github.event.repository.name }}",
+              "sha": "${{ github.sha }}"
+            }
+          }' | jq -Sr '.' > ${PAYLOAD}
+
+          cat ${PAYLOAD}
+
+          result=$(curl --silent -L\
+           -X POST\
+           -H "Accept: application/vnd.github+json"\
+           -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}"\
+           -H "X-GitHub-Api-Version: 2022-11-28"\
+           -d @"${PAYLOAD}"\
+           "https://api.github.com/repos/${{ github.repository_owner }}/${{ github.event.repository.name }}-private/dispatches")
+
+          if [[ -n "${result}" ]];
+          then
+            exit 1;
+          fi
