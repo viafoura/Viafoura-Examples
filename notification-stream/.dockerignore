@@ -1,0 +1,34 @@
+# Ignore Directories
+**/.act/
+**/.cspell/
+**/.devcontainer/
+**/.docs/
+**/.github/
+**/.idea/
+**/.stoplight/
+**/.vscode/
+**/charts/
+**/local-env/
+**/manifests/
+**/node_modules/
+**/dist/
+**/dist-local/
+**/kubernetes-manifests/
+**/kustomize/
+
+# Ignore Files
+.actrc
+.env
+.env.sample
+.eslintrc.js
+.gitops.yaml
+**/*secrets*.sh
+**/*sops-*.sh
+**/Dockerfile
+**/Dockerfile.*
+README.md
+build-docker.sh
+build.sh
+docker-compose.local.yaml
+docker-compose.yaml
+dockerignore_test.sh

@@ -1,0 +1,6 @@
+---
+pre-commit:
+  parallel: true
+  commands:
+    "Running Git Leaks Cli":
+      run: gitleaks git

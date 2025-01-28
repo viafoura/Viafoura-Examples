@@ -1,0 +1,5 @@
+services:
+  app:
+    image: "notification-stream:latest"
+    ports:
+      - "3000:3000"
